@@ -18,6 +18,11 @@ angular.module('shortly', [
     .when('/links', {
       templateUrl: 'app/links/links.html',
       controller: 'LinksController',
+      resolve: {
+        links: function(Links) {
+          return Links.getAll();
+        }
+      },
       authenticate: true
     })
     .when('/shorten', {
