@@ -18,6 +18,9 @@ angular.module('shortly.services', [])
       url: '/api/links',
       data: newLink
     });
+    // .then(function(resp) {
+    //   return resp.data;
+    // });
   };
 
   return {
@@ -60,6 +63,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log('-------------------SIGNED OUT------------------');
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };
