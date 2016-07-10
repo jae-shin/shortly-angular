@@ -18,9 +18,6 @@ angular.module('shortly.services', [])
       url: '/api/links',
       data: newLink
     });
-    // .then(function(resp) {
-    //   return resp.data;
-    // });
   };
 
   return {

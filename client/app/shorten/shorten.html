@@ -2,10 +2,11 @@
 <!-- Your code here -->
   <div class='creator'>
     <form name='myForm' ng-submit='addLink()' novalidate>
-      <input class='text' type='url' name='url' ng-model='link.url' ng-class="{ 'error': myForm.url.$invalid }">
-      <input type='submit' value='add'>
+      <input class='text' type='url' name='url' ng-model='link.url' ng-class="{ 'error': myForm.url.$invalid && myForm.$dirty }" required>
+      <input type='submit' value='add' ng-disabled='myForm.$invalid'>
     </form>
-    <div class='message' ng-show="myForm.url.$invalid">Not a valid URL</div>
+    <div class='message' ng-show="myForm.url.$error.required && myForm.$dirty">URL is required</div>
+    <div class='message' ng-show="myForm.url.$error.url && myForm.$dirty">Not a valid URL</div>
 
   </div>
 
